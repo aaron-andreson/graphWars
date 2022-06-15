@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graphWars</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/home.css"/>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="">graphWars</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item homeNav active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item navMap">
+              <a class="nav-link" href="/">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Tutorials</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="">Lobby</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Stats</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<br>
+
+<!-- main body -->
+<form id="form1">
+    <div class="form-group">
+      <label for="numberOfPlayers">Number of players</label>
+      <select class="form-control" id="playerNum">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="mapSize">Map Size</label>
+      <select multiple class="form-control" id="mapSize">
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+    </div>
+    <button id="select">Update</button>
+  </form>
+<div>
+<form id="form2">
+    <div class = options></div>
+<div class="form-group form2"></div>
+
+<button id="create">Create Map</button><button id="back">Back</button>
+</form></div>
+
+
+
+
+<div class="container" id="mapPage">
+  <div class="row">
+    <div class="col" id="info" >
+        <h4 id="turnHtml"></h4>
+        <h4 id="phase">Scouting</h4>
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger display">Deploy</button>
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">Deploy</a>
+              <a class="dropdown-item" href="/">Barracks</a>
+              <a class="dropdown-item" href="/">General</a>
+              <a class="dropdown-item" href="/">Remove</a>
+            </div>
+        </div>
+        <button class="finalize">Submit</button> 
+        <h4 id="turnPoints">Turn points: 15/15</h4>
+        <h4 id="round">Round: 1</h4>
+        <h4 id="timer">Timer:</h4>
+    </div>
+    <div class="col-lg-auto" >
+        <table id="map"></table>
+    </div>
+    <div class="col col-lg-2">
+        <table><th>Key</th>
+            <tbody class="table" id= 'key'>
+              <tr>
+                <td>Forest Terrain <img src="/static/images/forestterrain.png"> | Gate <img src="/static/images/gate.png"></td>
+              </tr>
+            </table>
+        
+            <ul>
+                <li>Directions are on the tutorial page. Will not reload your map.</li>
+            </ul> 
+    </div>
+  </div>
+</div>        
+           
+
+<div id="settings">
+    this is settings. will be released in Beta.
+</div>
+
+
+<div class="container" id="tutorials">
+    <div class="row">
+      <div class="col">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action objective active">Objective</a>
+        <a href="#" class="list-group-item list-group-item-action phases">Phases</a>
+        <a href="#" class="list-group-item list-group-item-action soldiers">Soldiers</a>
+        <a href="#" class="list-group-item list-group-item-action shortcuts">Shortcuts</a>
+        <!-- <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a> -->
+        
+      </div>
+</div>
+      </div>
+      <br>
+      <div class="col info">
+       <ul class="Objectiveli">To achieve military domination by: 
+            <li>Ending your turn with a soldier inside your enemies base</li>
+            <li>surrounding their base with your soldiers</li>
+            <li>preventing them from having a valid move on their turn</li>
+        </ul> 
+        <ol class="Phasesli">There are three phases: Scouting, Deployment, Recap
+            <li>Scouting happens right after map creation. It is time to look at the map and create a plan.</li>
+            <li>Deployment is the main player's turn. Use turnPoints to deploy soldiers and build barracks or generals.</li>
+            <li>Recap happens when the m. player finalizes their turn and is used to 
+                show the other players what the m. player did during their turn.</li>
+        </ol> 
+        <ul class="Soldiersli">Soldiers may battle enemy soldiers and collect resources. 
+            <li>First soldier is to be placed between the gates of your base. Then they may be placed on an empty square
+                touching another soldier on the north, south, east, or west side.
+            </li>
+            <li>To place soldiers on the map they must connect in an unbroken line your the deployment station. (base/barracks)</li>
+            <li>You may not place a soldier in a space on the map that you lost on your previous turn.</li>
+            <li>Broken soldiers need to be reconnected to a deployment station for a whole turn before being used to build off of again.</li>
+            <li>Your soldiers attack other enemy soldiers by being on at least two of the cardinal directions(n,s,w,e) and attack at the end of your turn</li>
+            <li>Soldiers collect resources by being on three points of the resource block(diagonals included). Resources are collected at the end of the turn.</li>
+            <li>Soldiers only attack at the end of their owners turn.</li>
+        </ul>
+        <ul class="Shortcutsli">
+          <li>d: Deploy</li>
+          <li>b: Barracks</li>
+          <li>r: Remove</li>
+          <li>g: General</li>
+        </ul>
+       <p></p>
+       <p></p>
+      </div>
+    </div>
+
+
+    <footer>Copyright by Aaron Andreson. Version ALPHA 1.4</footer>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    
+    
+    
+    <script src="../static/classes.js"></script>
+    <script src="../static/utilityfunctions.js"></script>
+    <script src ="../static/app.js"></script>
+    <script src="../static/board.js"></script>
+    <script src="../static/map.js"></script>
+    <script async src="../static/html.js"></script>
+    <script src="../static/soldiers.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+h1{
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+#map{
+    table-layout: fixed;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border: 2px solid #3e6cb1;
+    background-color: white;
+}
+
+td:nth-of-type(5n + 0) {
+    border-right-color: #73454d;
+}
+
+.color5 td{
+    border-bottom-color: #73454d;
+}
+
+body {
+    background-color: black;
+    color: white;
+    
+}
+.eRecap{
+    background-color: rgba(231, 24, 24, 0.5);
+}
+.tRecap{
+    background-color: rgba(18, 240, 92, 0.511);
+}
+.sRecap{
+    background-color: rgba(46, 141, 229, 0.301);
+}
+
+.table{
+    margin-right: 0px;
+    color: black;
+}
+.base {
+    padding: 0;
+}
+
+.soldier{
+    padding: 0;
+}
+.rSoldier{
+    padding: 0;
+}
+.removed{
+    padding: 0;
+}
+.terrain{
+    padding: 0px;
+}
+
+div{
+    display: inline;
+}
+
+img {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    color: white;
+}
+
+ul {
+    color: white;
+}
+
+footer{
+    color: white;
+}
